@@ -25,18 +25,41 @@ const GlobalContextProvider = ({children}) =>{
         })
     }
   }
-  function deleteTransaction(id) {
+  async function deleteTransaction(id) {
+    try {
+      await axios.delete(`/api/expense-tracker/${id}`)
     dispatch({
-      type:'DELETE_TRANSACTION',
+      type: 'DELETE_TRANSACTION',
       payload: id
     })
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      })
+    }
+    
   }
 
-  function addTransaction(transaction){
-    dispatch({
-      type:'ADD_TRANSACTION',
-      payload:transaction
-    })
+  async function addTransaction(transaction){
+    try {
+      const config = {
+        headers:{
+          'Content-Type':'application/json'
+        }
+      }
+      const res = await axios.post('/api/expense-tracker', transaction, config)
+      dispatch({
+        type: 'ADD_TRANSACTION',
+        payload: res.data.data
+      })
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      })
+    }
+    
   }
   return (
     <GlobalContext.Provider value ={{

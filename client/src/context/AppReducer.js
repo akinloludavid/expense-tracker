@@ -1,14 +1,15 @@
 export  const AppReducer = (state, action)=>{
   switch(action.type){
-    case 'GET_TRANSACTION':
+    case 'GET_TRANSACTIONS':
       return {
         ...state,
+        loading:false,
         transactions:action.payload
       }
     case 'DELETE_TRANSACTION':
       return {
         ...state, 
-        transactions:state.transactions.filter(tran => tran.id !== action.payload)
+        transactions:state.transactions.filter(tran => tran._id !== action.payload)
       }
     case 'ADD_TRANSACTION':
       return {

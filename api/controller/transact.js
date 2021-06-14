@@ -32,7 +32,10 @@ exports.addTransactions = async (req, res, next) => {
     data:result
   })
 }catch(err){
-  
+  return res.status(500).json({
+    success: false,
+    error: 'server error'
+  })
 }
 }
 
@@ -57,7 +60,10 @@ exports.deleteTransactions =  async(req, res, next) => {
       message:'Transaction deleted'
     })
   }catch(err){
-
+    return res.status(500).json({
+      success: false,
+      error: 'server error'
+    })
   }
 }
 
