@@ -1,5 +1,10 @@
 export  const AppReducer = (state, action)=>{
   switch(action.type){
+    case 'GET_TRANSACTION':
+      return {
+        ...state,
+        transactions:action.payload
+      }
     case 'DELETE_TRANSACTION':
       return {
         ...state, 
@@ -7,7 +12,12 @@ export  const AppReducer = (state, action)=>{
       }
     case 'ADD_TRANSACTION':
       return {
-        ...state, transactions:[action.payload,...state.transactions]
+        ...state, transactions: [...state.transactions, action.payload]
+      }
+    case 'TRANSACTION_ERROR':
+      return {
+        ...state, 
+        error:action.payload
       }
     default:
       return state
