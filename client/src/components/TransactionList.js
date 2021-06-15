@@ -14,7 +14,7 @@ const TransactionList = () => {
       <ul className = "list"> 
         {transactions.map(trans=>{
           return(
-            <Transaction key = {trans.id} trans ={trans}/>
+            <Transaction key = {trans._id} trans ={trans}/>
           )
         })}
         <li>

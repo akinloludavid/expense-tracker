@@ -9,6 +9,9 @@ const TransactionSchema = new mongoose.Schema({
   amount:{
     type:Number, 
     required: [true, 'Please add a postive or negative number']
+  }, 
+  accountOwner:{
+    type:String
   }
 }, {
   timestamps:true

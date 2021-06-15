@@ -2,6 +2,7 @@ const express = require('express')
 const logger = require('morgan')
 const dotenv = require('dotenv');
 const transactions = require('./routes/transactions');
+const users = require('./routes/userAuth')
 const connectDB = require('./config/connection');
 dotenv.config({
   path:'./config/config.env'
@@ -12,6 +13,7 @@ const app = express()
 app.use(express.json())
 app.use(logger('dev'))
 
+app.use('/', users)
 app.use('/api/expense-tracker', transactions)
 
 

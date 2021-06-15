@@ -24,6 +24,14 @@ body {
   width: 350px;
 }
 
+
+.container-fluid{
+  width: 1200px;
+}
+#carousel img{
+  width:800px;
+  max-height: 80vh;
+}
 h1 {
   letter-spacing: 1px;
   margin: 0;
@@ -89,7 +97,7 @@ input[type='number'] {
 
 .btn {
   cursor: pointer;
-  background-color: #9c88ff;
+  background-color: #4a34b8;
   box-shadow: var(--box-shadow);
   color: #fff;
   border: 0;
@@ -148,4 +156,13 @@ input[type='number'] {
 
 .list li:hover .delete-btn {
   opacity: 1;
+}
+
+/* SignIn */
+
+.signInBg{
+  width: 40vw;
+}
+.signUpBg {
+  width: 40vw;
 }

@@ -1,9 +1,11 @@
-const Transactions = require('../models/transact')
+const Transactions = require('../models/transactModel')
 
 /** get transactions */
 exports.getTransactions = async (req, res, next)=>{
   try{
-    const transactions = await Transactions.find()
+    const currentUser = req.user
+    const query = { accountOwner: currentUser._id  };
+		const transactions = await Transactions.find(query)
     return res.status(200).json({
       data:transactions,
       count:transactions.length,
@@ -24,7 +26,9 @@ exports.addTransactions = async (req, res, next) => {
   try{
   const {text, amount} = req.body
   
+
   const result = await new Transactions(req.body)
+  result.accountOwner = req.user._id
   await result.save()
 
   return res.status(201).json({
@@ -34,6 +38,7 @@ exports.addTransactions = async (req, res, next) => {
 }catch(err){
   return res.status(500).json({
     success: false,
+    message:err.message,
     error: 'server error'
   })
 }
@@ -47,14 +52,22 @@ exports.addTransactions = async (req, res, next) => {
 exports.deleteTransactions =  async(req, res, next) => {
  
   try{
-    const transaction = await Transactions.findByIdAndDelete(req.params.id)
+    const currentUser = req.user
+    const transaction = await Transactions.findById(req.params.id)
     if(!transaction){
       return res.status(404).json({
         success:false,
         error:'notfound'
       })
     }
-   
+    console.log(currentUser._id)
+    if(transaction.accountOwner != currentUser._id){
+      return res.status(403).json({
+        success:false,
+        message:"Unauthorized"
+      })
+    }
+    await transaction.remove()
     return res.status(200).json({
       success:true, 
       message:'Transaction deleted'
@@ -62,6 +75,7 @@ exports.deleteTransactions =  async(req, res, next) => {
   }catch(err){
     return res.status(500).json({
       success: false,
+      message:err.message,
       error: 'server error'
     })
   }

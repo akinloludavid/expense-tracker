@@ -1,24 +1,25 @@
 import './App.css';
-import Header from './components/Header'
-import Balance from './components/Balance'
-import IncomeExpense from './components/IncomeExpense';
-import TransactionList from './components/TransactionList';
-import AddTransaction from './components/AddTransaction';
-import GlobalContextProvider from './context/GlobalState';
 
+import GlobalContextProvider from './context/GlobalState';
+import {Route, Switch} from 'react-router-dom'
+import Home from './Home';
+import SignUp from './pages/SignUp'
+import SignIn from './pages/SignIn'
+import Landing from './pages/Landing'
 function App() {
   return (
     <GlobalContextProvider>
-      <div className="App">
-        <Header/>
-
-        <div class = "container">
-          <Balance/>
-          <IncomeExpense/>
-          <TransactionList/>
-          <AddTransaction/>
-        </div>
-      </div>
+      
+      
+        <Switch>
+          <Route exact path = "/" component = {Landing}/>
+          <Route exact path = "/signup" component = {SignUp}/>
+          <Route exact path = "/signin" component = {SignIn}/>
+          <Route exact path = "/home">
+            <Home/>
+          </Route>
+          
+        </Switch>
     </GlobalContextProvider>
   );
 }
