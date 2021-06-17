@@ -1,43 +1,43 @@
 import React, {useState, useContext} from 'react'
 import { GlobalContext } from '../context/GlobalState';
 import { v4 as uuidv4 } from 'uuid';
-
+import { Button, Form } from 'react-bootstrap';
  const AddTransaction = () => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState(0);
 
   const { addTransaction } = useContext(GlobalContext);
-
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-
+    console.log('hi')
     const newTransaction = {
-      id: uuidv4(),
+     
       text,
       amount: +amount
     }
 
-    addTransaction(newTransaction);
+    await addTransaction(newTransaction);
     setText('')
     setAmount('')
   }
 
   return (
     <>
-      <h3>Add new transaction</h3>
-      <form onSubmit={onSubmit}>
-        <div className="form-control">
-          <label htmlFor="text">Text</label>
-          <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text..." />
-        </div>
-        <div className="form-control">
-          <label htmlFor="amount">Amount <br />
-            (negative - expense, positive - income)
-          </label>
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount..." />
-        </div>
-        <button className="btn">Add transaction</button>
-      </form>
+      <h3 className = "my-4">Add new transaction</h3>
+      <Form onSubmit={onSubmit}>
+        <Form.Group>
+          
+          <Form.Control type="text" placeholder="Enter title" value={text} onChange={(e) => setText(e.target.value)} />
+          
+        </Form.Group>
+
+        <Form.Group>
+          
+          <Form.Control type="number" placeholder="Amount" value= {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount..."/>
+        </Form.Group>
+      
+        <Button className="btn" type = "submit">Add transaction</Button>
+      </Form>
     </>
   )
 }

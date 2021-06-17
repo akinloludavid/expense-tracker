@@ -13,8 +13,8 @@ const Transaction = ({trans})=>{
   return (
     <div className = "list" >
       <li className = {amount < 0 ? 'minus' : 'plus'}>
-
-      {text} <span>{changeAmountSign(amount)}</span>
+{text}
+       <span>{changeAmountSign(amount)}</span>
       <button onClick ={()=>deleteTransaction(_id)} className = "delete-btn">x</button>
       </li>
 

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {GlobalContext} from '../context/GlobalState'
- const IncomeExpense = () => {
+const IncomeExpense = () => {
   const {transactions} = useContext(GlobalContext)
   if(!transactions.length){
     return <h3>Add new stuff</h3>
@@ -19,7 +19,7 @@ import {GlobalContext} from '../context/GlobalState'
     return `$${Math.abs(amt)}`
   }
   return (
-    <div className = "inc-exp-container" >
+    <div className = "inc-exp-container d-block">
       <div>
         <h4>Income</h4>
         <p className = "money plus">{changeAmountSign(totalIncome)}</p>

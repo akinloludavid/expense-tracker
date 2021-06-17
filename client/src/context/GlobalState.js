@@ -11,9 +11,16 @@ export const GlobalContext = createContext(initialState)
 
 const GlobalContextProvider = ({children}) =>{
   const [state, dispatch] = useReducer(AppReducer, initialState)
+  const token = localStorage.getItem('token')
+  const config = {
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization': 'Bearer ' +token
+    }
+  }
   async function getTransactions(){
     try{
-      const res = await axios.get('/api/expense-tracker')
+      const res = await axios.get('/api/expense-tracker', config)
       dispatch({
         type:'GET_TRANSACTIONS',
         payload:res.data.data
@@ -27,7 +34,7 @@ const GlobalContextProvider = ({children}) =>{
   }
   async function deleteTransaction(id) {
     try {
-      await axios.delete(`/api/expense-tracker/${id}`)
+      await axios.delete(`/api/expense-tracker/${id}`, config)
     dispatch({
       type: 'DELETE_TRANSACTION',
       payload: id
@@ -43,11 +50,7 @@ const GlobalContextProvider = ({children}) =>{
 
   async function addTransaction(transaction){
     try {
-      const config = {
-        headers:{
-          'Content-Type':'application/json'
-        }
-      }
+     
       const res = await axios.post('/api/expense-tracker', transaction, config)
       dispatch({
         type: 'ADD_TRANSACTION',

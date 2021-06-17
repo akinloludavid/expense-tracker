@@ -10,7 +10,7 @@ function Home() {
       <div className="App">
         <Header/>
 
-        <div class = "container">
+        <div className= "container">
           <Balance/>
           <IncomeExpense/>
           <TransactionList/>
