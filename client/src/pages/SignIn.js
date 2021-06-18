@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, {useState, useRef}from 'react';
 import {Form, Button, Alert} from 'react-bootstrap'
 import {Link, useHistory} from 'react-router-dom'
@@ -16,23 +15,21 @@ const SignIn =  () => {
 
 
     const login = async (evt) =>{
-
+    
+    
     evt.preventDefault()
     setLoading(true)
     try{
       const res = await signIn(emailRef.current.value, passwordRef.current.value)
 
-      console.log(res)
 
       const token= res.data.token
-        localStorage.setItem('token', token)
-        console.log(res.data.user.firstname)
-        setCurrentUser(res.data.user.firstname)
-        console.log('user',currentUser)
-        setError('')
-        setLoading(false)
-        swal("Login Successful!", res.data.user.firstname, "success");
-        return history.push('/home')
+      localStorage.setItem('token', token)
+      setCurrentUser(res.data.user.firstname)
+      setError('')
+      setLoading(false)
+      swal("Login Successful!", res.data.user.firstname, "success");
+      return history.push('/home')
       
             
     }catch(err){

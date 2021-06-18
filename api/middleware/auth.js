@@ -22,7 +22,7 @@ exports.authenticate = async (req, res, next) =>{
     }
     next()
   } catch (error) {
-     res.status(400).json({
+    res.status(400).json({
       'error': error.message
     });
     process.exit(1)

@@ -1,7 +1,6 @@
 import React, {useState, useRef} from 'react';
-import {Link, useHistory, Redirect} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import {Button, Form, Alert} from 'react-bootstrap'
-import axios from 'axios'
 import { ValidateFname, ValidateLname, ValidateEmail, ValidatePassword } from '../utils/Validation';
 import {useAuth} from '../context/AuthContext'
 import swal from 'sweetalert'
@@ -44,22 +43,17 @@ const SignUp = () => {
     setLoading(true)
     try{
       const res = await  signUp(firstNameRef.current.value, lastNameRef.current.value, emailRef.current.value, passwordRef.current.value)
-      console.log(res)
       if (res.data.message === "User successfully created"){
-        console.log(res)
         swal("Welcome!", res.data.data.firstname, "success");
         setLoading(false)
         history.push('/signin')
       }
       else if (res.data.message === "User already registered"){
-        console.log('error')
-        console.log(res)
         setLoading(false)
         return setError("Email already exists")
       }
 
     }catch(err){
-      console.log(err)
       const errorArray = err.message.split(' ')
       const len = errorArray.length
       if(errorArray[len-1]==="400"){

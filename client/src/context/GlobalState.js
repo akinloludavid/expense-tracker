@@ -1,5 +1,5 @@
 import React, {createContext, useReducer}from 'react';
-import axios from 'axios'
+import axios from '../utils/axiosapi'
 import {AppReducer} from './AppReducer'
 const initialState = {
   transactions: [], 
@@ -11,30 +11,30 @@ export const GlobalContext = createContext(initialState)
 
 const GlobalContextProvider = ({children}) =>{
   const [state, dispatch] = useReducer(AppReducer, initialState)
-  const token = localStorage.getItem('token')
-  const config = {
-    headers:{
-      'Content-Type':'application/json',
-      'Authorization': 'Bearer ' +token
-    }
-  }
+  
+
   async function getTransactions(){
+    
     try{
-      const res = await axios.get('/api/expense-tracker', config)
+      
+      const res = await axios.get('/api/expense-tracker')
+     
+      localStorage.setItem('userdetails', JSON.stringify(res.data.data))
+      const userdetails = JSON.parse(localStorage.getItem('userdetails'))
       dispatch({
         type:'GET_TRANSACTIONS',
-        payload:res.data.data
+        payload:userdetails
       })
     }catch(err){
         dispatch({
           type:'TRANSACTION_ERROR', 
-          payload:err.response.data.error
+          payload:err?.response?.data?.error
         })
     }
   }
   async function deleteTransaction(id) {
     try {
-      await axios.delete(`/api/expense-tracker/${id}`, config)
+      await axios.delete(`/api/expense-tracker/${id}`)
     dispatch({
       type: 'DELETE_TRANSACTION',
       payload: id
@@ -51,7 +51,7 @@ const GlobalContextProvider = ({children}) =>{
   async function addTransaction(transaction){
     try {
      
-      const res = await axios.post('/api/expense-tracker', transaction, config)
+      const res = await axios.post('/api/expense-tracker', transaction)
       dispatch({
         type: 'ADD_TRANSACTION',
         payload: res.data.data
@@ -68,7 +68,7 @@ const GlobalContextProvider = ({children}) =>{
     <GlobalContext.Provider value ={{
       transactions:state.transactions,
       deleteTransaction, addTransaction, 
-      error:state.error, loading:state.loading, getTransactions
+      error:state.error, loading:state.loading, getTransactions, dispatch
     }}>
       {children}
     </GlobalContext.Provider>

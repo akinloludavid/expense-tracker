@@ -20,6 +20,12 @@ export  const AppReducer = (state, action)=>{
         ...state, 
         error:action.payload
       }
+    case 'LOGOUT':
+      return{
+        transactions:[],
+        error:false,
+        loading:false
+      }
     default:
       return state
   }

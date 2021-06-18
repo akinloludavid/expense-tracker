@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react'
 import { GlobalContext } from '../context/GlobalState';
-import { v4 as uuidv4 } from 'uuid';
 import { Button, Form } from 'react-bootstrap';
  const AddTransaction = () => {
   const [text, setText] = useState('');
@@ -9,7 +8,6 @@ import { Button, Form } from 'react-bootstrap';
   const { addTransaction } = useContext(GlobalContext);
   const onSubmit = async e => {
     e.preventDefault();
-    console.log('hi')
     const newTransaction = {
      
       text,
