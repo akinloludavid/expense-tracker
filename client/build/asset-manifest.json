@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.404bcefc.chunk.css",
+    "main.js": "/static/js/main.98470299.chunk.js",
+    "main.js.map": "/static/js/main.98470299.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.900dd88b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.900dd88b.js.map",
+    "static/css/2.8757ddda.chunk.css": "/static/css/2.8757ddda.chunk.css",
+    "static/js/2.e44581db.chunk.js": "/static/js/2.e44581db.chunk.js",
+    "static/js/2.e44581db.chunk.js.map": "/static/js/2.e44581db.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.8757ddda.chunk.css.map": "/static/css/2.8757ddda.chunk.css.map",
+    "static/css/main.404bcefc.chunk.css.map": "/static/css/main.404bcefc.chunk.css.map",
+    "static/js/2.e44581db.chunk.js.LICENSE.txt": "/static/js/2.e44581db.chunk.js.LICENSE.txt",
+    "static/media/carlos-muza-hpjSkU2UYSU-unsplash.0eac75f4.jpg": "/static/media/carlos-muza-hpjSkU2UYSU-unsplash.0eac75f4.jpg",
+    "static/media/michael-longmire-lhltMGdohc8-unsplash.e6bf797a.jpg": "/static/media/michael-longmire-lhltMGdohc8-unsplash.e6bf797a.jpg",
+    "static/media/visual-stories-micheile-ZVprbBmT8QA-unsplash.8ac99b07.jpg": "/static/media/visual-stories-micheile-ZVprbBmT8QA-unsplash.8ac99b07.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.900dd88b.js",
+    "static/css/2.8757ddda.chunk.css",
+    "static/js/2.e44581db.chunk.js",
+    "static/css/main.404bcefc.chunk.css",
+    "static/js/main.98470299.chunk.js"
+  ]
+}
