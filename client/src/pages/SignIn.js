@@ -47,6 +47,8 @@ const SignIn =  () => {
   return ( 
     <div className = "signInBg bg-light p-3">
       <h3 className= "m-3">Sign In</h3>
+      <p className="text-warning">This is a test application so you sign in using email: howardjohn@mail.com and Password:Password27 for quick navigation.</p>
+
       {error && <Alert variant="danger">{error}</Alert>}
       <Form className = "bg-light col-md-12 p-3" onSubmit = {login}>
         <Form.Group controlId="formBasicEmail">

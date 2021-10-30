@@ -19,7 +19,7 @@ const IncomeExpense = () => {
     return `$${Math.abs(amt)}`
   }
   return (
-    <div className = "inc-exp-container d-block">
+    <div className = "inc-exp-container">
       <div>
         <h4>Income</h4>
         <p className = "money plus">{changeAmountSign(totalIncome)}</p>

@@ -67,29 +67,7 @@ const SignUp = () => {
       
     }
   }
-  // const signUpWithGoogle = async (evt) =>{
-  //   try{
-  //     await googleSignUp()
-  //     history.push('/home')
-  //     console.log(currentUser)
-  //   }catch(err){
-  //     console.log(err.message)
-  //   }
-  // }
-  // const googleSignIn =  () =>{
-  //   auth
-  //     .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-  //     .then((res) => {
-  //       console.log(res);
-  //       if (res.user?.displayName) {
-  //         swal("Welcome!", res.user?.displayName.split(' ')[0], "success");
-  //       }
-  //       history.push("/home");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
+
   return ( 
     <div className = "signUpBg ">
       <h2>SpendWizely</h2>

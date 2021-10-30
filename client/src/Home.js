@@ -1,5 +1,4 @@
-import React, {useEffect} from 'react';
-import './App.css';
+import React from 'react';
 import Header from './components/Header';
 import Balance from './components/Balance';
 import IncomeExpense from './components/IncomeExpense';
@@ -9,7 +8,7 @@ function Home() {
 
   return (
       
-      <div className="App">
+      <div className="app">
         <Header/>
 
         <div className= "container">
@@ -19,7 +18,6 @@ function Home() {
           <AddTransaction/>
         </div>
       </div>
-    
   );
 }
 

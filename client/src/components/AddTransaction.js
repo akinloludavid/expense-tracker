@@ -31,7 +31,7 @@ import { Button, Form } from 'react-bootstrap';
 
         <Form.Group>
           
-          <Form.Control type="number" placeholder="Amount" value= {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount..."/>
+          <Form.Control type="number" placeholder="Amount" value= {amount} onChange={(e) => setAmount(e.target.value)}/>
         </Form.Group>
       
         <Button className="btn" type = "submit">Add transaction</Button>

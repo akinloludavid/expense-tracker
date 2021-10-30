@@ -6,7 +6,7 @@ const Balance = () => {
                             .reduce((acc, curr) => (acc+=curr), 0).toFixed(2)
 
   return ( 
-    <div>
+    <div className="text-center">
       <h4>Your balance</h4>
       <h1>${total}</h1>
     </div>

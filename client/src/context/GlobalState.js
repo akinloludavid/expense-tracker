@@ -15,8 +15,7 @@ const GlobalContextProvider = ({children}) =>{
 
   async function getTransactions(){
     
-    try{
-      
+    try{      
       const res = await axios.get('/api/expense-tracker')
      
       localStorage.setItem('userdetails', JSON.stringify(res.data.data))

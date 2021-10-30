@@ -1,57 +1,44 @@
-import React from 'react';
-import {Carousel, Button} from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Carousel, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import image1 from "../assets/carlos-muza-hpjSkU2UYSU-unsplash.jpg";
+import image2 from "../assets/michael-longmire-lhltMGdohc8-unsplash.jpg";
+import image3 from "../assets/visual-stories-micheile-ZVprbBmT8QA-unsplash.jpg";
+import './Landing.css'
 const Landing = () => {
-  return ( 
-    <div className = "container-fluid">
-    <h3>SpendWizely</h3>
-    <Carousel fade id = "carousel" >
+ return (
+  <div className="container-fluid landing">
+    <h2>SpendWizely</h2>
+    <Carousel fade id="carousel">
       <Carousel.Item>
-        <img
-          className="d-block img-fluid"
-          src="https://picsum.photos/id/237/200/300"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+      <img className="d-block img-fluid carousel-image" src={image1} alt="First slide" />
+      <Carousel.Caption>
+        <h3>Track your finance</h3>
+        <p>Keep tabs on your income and expenditure</p>
+      </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block img-fluid"
-          src = "https://picsum.photos/seed/picsum/200/300"
-          alt="Second slide"
-        />
+      <img className="d-block img-fluid carousel-image" src={image2} alt="Second slide" />
 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
+      <Carousel.Caption>
+        <h3>Save more, spend less</h3>
+        <p>Helps you spend less and save more money.</p>
+      </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block"
-          src = "https://picsum.photos/200/300.jpg"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </Carousel.Caption>
+      <img className="d-block img-fluid carousel-image" src={image3} alt="Third slide" />
+      <Carousel.Caption>
+        <h3 className="shadow-lg">Your money works for you.</h3>
+        <p>Your money yields 10% interest per annum.</p>
+      </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
 
-    
-      <Link className = "text-white" to ="/signup">
-        <Button className ="primary text-white">
-          Get Started
-        </Button>
-      </Link>
- 
-    </div>
-  );
-}
- 
+    <Link className="text-white" to="/signin">
+      <Button className="primary text-white">Get Started</Button>
+    </Link>
+  </div>
+ );
+};
+
 export default Landing;

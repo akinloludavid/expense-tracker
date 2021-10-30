@@ -12,7 +12,6 @@ import {AuthProvider} from './context/AuthContext'
 function App() {
   return (
     <GlobalContextProvider>
-      
       <AuthProvider>
         <Switch>
         <ProtectedRoute exact path = "/home" component ={Home}/>

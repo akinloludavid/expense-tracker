@@ -1,0 +1,11 @@
+.landing{
+  max-width: 900px;
+  max-height: 100vh;
+}
+
+.landing h3, .landing p{
+  text-shadow: 2px 2px #3a3939;
+}
+.carousel-image{
+  /* filter: grayscale(); */
+}
