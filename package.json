@@ -1,11 +1,13 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "license": "MIT",
   "scripts": {
     "start": "node app",
-    "start-dev": "nodemon app"
+    "start-dev": "nodemon app",
+    "client": "yarn start --prefix client",
+    "dev": "concurrently \"yarn start-dev\" \"yarn client\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -16,7 +18,10 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "concurrently": "^6.3.0",
     "joi": "^17.4.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "repository": "https://github.com/akinloludavid/expense-tracker.git",
+  "author": "akinloludavid <akinloludavid2727@gmail.com>"
 }
